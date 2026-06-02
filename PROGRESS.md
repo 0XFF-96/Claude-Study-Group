@@ -10,7 +10,7 @@
 <!-- PROGRESS:START -->
 | Member | Target exam date | D1 Secure | D2 Resilient | D3 Performance | D4 Cost | Last check-in | Status |
 |---|---|---|---|---|---|---|---|
-| [jimmyli](members/jimmyli/) | 2026-08-15 | 55% | 20% | 0% | 0% | 2026-05-30 | 🟢 In progress |
+| [jimmyli](members/jimmyli/) | 2026-08-15 | 55% | 30% | 0% | 0% | 2026-05-30 | 🟢 In progress |
 <!-- PROGRESS:END -->
 
 **Legend** — D1 Secure · D2 Resilient · D3 Performance · D4 Cost ·
