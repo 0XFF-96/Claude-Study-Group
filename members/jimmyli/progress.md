@@ -25,7 +25,7 @@ See [../../syllabus/SAA-C03.md](../../syllabus/SAA-C03.md) for the authoritative
 
 - [x] Multi-AZ vs Multi-Region design
 - [x] Auto Scaling groups: policies, lifecycle, warm pools
-- [ ] Elastic Load Balancing: ALB vs NLB vs GWLB, target groups, health checks
+- [x] Elastic Load Balancing: ALB vs NLB vs GWLB, target groups, health checks
 - [ ] Route 53: routing policies (failover, latency, weighted), health checks
 - [ ] Decoupling: SQS (standard vs FIFO), SNS, EventBridge
 - [ ] RDS resiliency: Multi-AZ, read replicas, automated backups
