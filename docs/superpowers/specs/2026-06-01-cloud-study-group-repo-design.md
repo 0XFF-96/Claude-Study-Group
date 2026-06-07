@@ -1,7 +1,7 @@
 # Cloud Study Group Repo Design
 
-- **Date**: 2026-06-01
-- **Certification target**: AWS Certified Solutions Architect – Associate (SAA-C03)
+- **Date**: 2026-06-01 (certification target switched to CCA-F on 2026-06-05)
+- **Certification target**: Claude Certified Architect – Foundations (CCA-F)
 - **Group size**: 7–15 people
 - **Collaboration model**: Direct push to `main` (designed around "everyone edits only their own files" to minimize conflicts)
 
@@ -26,7 +26,7 @@ Build a clear, low-friction, sustainable GitHub repo for a cloud certification s
 ## Conventions
 
 - **Member folder naming**: lowercase GitHub username, e.g. `members/jimmyli/`. Matches PR/commit authors.
-- **Progress quantification**: each domain shown as "completed topics / total topics" percentage, e.g. `Domain 1: 60%`. Topic lists come from `syllabus/SAA-C03.md`.
+- **Progress quantification**: each domain shown as "completed topics / total topics" percentage, e.g. `Domain 1: 60%`. Topic lists come from `syllabus/CCA-F.md`.
 - **Check-in cadence**: at least once per week, recorded in each member's `weekly-log.md`.
 - **Conflict minimization**: only ever edit files under your own `members/<name>/` folder. `PROGRESS.md` is bot-owned — never edit it by hand.
 - **Progress is computed from checkboxes**: your domain percentages come straight from the `- [x]` boxes in your `progress.md`. No manual percentage entry.
@@ -44,19 +44,19 @@ Claude-Study-Group/
 ├── scripts/
 │   └── update_progress.py     # Aggregates members' checkboxes -> PROGRESS.md (stdlib only)
 ├── syllabus/
-│   └── SAA-C03.md             # Exam blueprint: 4 domains + topic checklist template
+│   └── CCA-F.md               # Exam blueprint: 5 domains + topic checklist template
 ├── members/
 │   ├── _TEMPLATE/             # New members copy this folder to start
 │   │   ├── profile.md         #   Personal info + target exam date + study plan
 │   │   ├── progress.md        #   Personal detailed domain topic checklist
 │   │   ├── notes/
-│   │   │   └── domain-1-security.md   # Example note
+│   │   │   └── domain-1-agentic.md   # Example note
 │   │   └── weekly-log.md      #   Weekly check-in: hours + what was done + reflection
 │   └── jimmyli/               # Example member folder (copied from _TEMPLATE)
 │       ├── profile.md
 │       ├── progress.md
 │       ├── notes/
-│       │   └── domain-1-security.md
+│       │   └── domain-1-agentic.md
 │       └── weekly-log.md
 └── resources/
     └── README.md              # Shared study resources list (courses/docs/practice exams)
@@ -71,7 +71,7 @@ Claude-Study-Group/
 | `PROGRESS.md` | **Bot (Action)** | Auto-generated overview table; humans never edit it |
 | `scripts/update_progress.py` | Maintainer | Counts checkboxes + metadata → regenerates PROGRESS.md table |
 | `.github/workflows/update-progress.yml` | Maintainer | Runs the script on schedule + on push, commits the result |
-| `syllabus/SAA-C03.md` | Maintainer | Authoritative 4-domain topic checklist, source for personal progress.md |
+| `syllabus/CCA-F.md` | Maintainer | Authoritative 5-domain topic checklist, source for personal progress.md |
 | `members/_TEMPLATE/` | Maintainer | Starter template with all placeholder files |
 | `members/<name>/` | The member | Personal profile, detailed checklist, notes, weekly log |
 | `resources/README.md` | Everyone | Shared courses/docs/practice-exam links |
@@ -82,19 +82,21 @@ Claude-Study-Group/
 |--------|---------|
 | Member | GitHub username (links to their folder) |
 | Target exam date | Planned exam date |
-| D1 Secure | Domain 1 completion % |
-| D2 Resilient | Domain 2 completion % |
-| D3 Performance | Domain 3 completion % |
-| D4 Cost | Domain 4 completion % |
+| D1 Agentic | Domain 1 completion % |
+| D2 Tools/MCP | Domain 2 completion % |
+| D3 Claude Code | Domain 3 completion % |
+| D4 Prompting | Domain 4 completion % |
+| D5 Context | Domain 5 completion % |
 | Last check-in | Date of latest weekly-log entry |
 | Status | 🟢 In progress / 🎯 Final prep / ✅ Passed |
 
-### SAA-C03 exam domains (official weights)
+### CCA-F exam domains (official weights)
 
-1. **Domain 1: Design Secure Architectures** (30%)
-2. **Domain 2: Design Resilient Architectures** (26%)
-3. **Domain 3: Design High-Performing Architectures** (24%)
-4. **Domain 4: Design Cost-Optimized Architectures** (20%)
+1. **Domain 1: Agentic Architecture & Orchestration** (27%)
+2. **Domain 2: Tool Design & MCP Integration** (18%)
+3. **Domain 3: Claude Code Configuration & Workflows** (20%)
+4. **Domain 4: Prompt Engineering & Structured Output** (20%)
+5. **Domain 5: Context Management & Reliability** (15%)
 
 ## New member onboarding flow (goes into GUIDE.md)
 
@@ -110,7 +112,7 @@ Claude-Study-Group/
 - **Steps**: checkout → setup Python → run `scripts/update_progress.py` → if `PROGRESS.md` changed, commit as `github-actions[bot]` and push (with `git pull --rebase` first).
 - **Visibility**: the script also prints the rendered table to `$GITHUB_STEP_SUMMARY`, so each run's page shows "where everyone is" without opening the file.
 - **Parsing contract** (what the script relies on):
-  - `progress.md` groups checkboxes under `## Domain 1` … `## Domain 4` headers; lines `- [ ]` / `- [x]` are counted per domain.
+  - `progress.md` groups checkboxes under `## Domain 1` … `## Domain 5` headers; lines `- [ ]` / `- [x]` are counted per domain.
   - `profile.md` contains `**Target exam date**: YYYY-MM-DD` and `**Status**: in-progress|final-prep|passed` lines.
   - `weekly-log.md` uses `## YYYY-MM-DD` entry headers; the max date is the last check-in.
   - `PROGRESS.md` has `<!-- PROGRESS:START -->` / `<!-- PROGRESS:END -->` markers; only the block between them is regenerated.

@@ -1,7 +1,7 @@
 # Participation Guide
 
-Everything you need to take part in the **AWS SAA-C03 Study Group**. Read once, then it
-becomes muscle memory.
+Everything you need to take part in the **Claude Certified Architect – Foundations (CCA-F)
+Study Group**. Read once, then it becomes muscle memory.
 
 ## The one rule
 
@@ -27,7 +27,7 @@ Then open your new folder and:
 1. **`profile.md`** — fill in your name, GitHub handle, **target exam date**, and **status**.
    Keep the `Target exam date:` and `Status:` lines in their existing format — the bot reads them.
 2. **`progress.md`** — this is your personal checklist (a copy of the
-   [SAA-C03 syllabus](syllabus/SAA-C03.md)). Leave the boxes unchecked for now.
+   [CCA-F syllabus](syllabus/CCA-F.md)). Leave the boxes unchecked for now.
 3. **`weekly-log.md`** — replace the example entry with your first real one.
 
 Push it:
@@ -88,7 +88,7 @@ The Action runs **every Monday**, **on every push** that touches `members/`, and
 
 ### Keep the format parser-friendly
 
-- In `progress.md`, keep the `## Domain 1` … `## Domain 4` headers exactly.
+- In `progress.md`, keep the `## Domain 1` … `## Domain 5` headers exactly.
 - In `profile.md`, keep `**Target exam date**: ...` and `**Status**: ...` lines.
 - In `weekly-log.md`, use `## YYYY-MM-DD` headers for entries.
 

@@ -16,12 +16,12 @@ latest date as your "Last check-in". Keep it short and honest.
 
 ## 2026-05-30
 - **Hours this week**: 5
-- **Covered**: Domain 1 IAM, KMS, encryption; started Auto Scaling in Domain 2.
-- **Wins / what clicked**: Envelope encryption finally makes sense.
-- **Stuck on / questions for the group**: When to pick NLB vs ALB for TLS passthrough?
-- **Next week**: Finish Domain 2 load balancing + Route 53.
+- **Covered**: Domain 1 agentic loop + hub-and-spoke orchestration; started tool descriptions in Domain 2.
+- **Wins / what clicked**: `stop_reason` loop control finally makes sense.
+- **Stuck on / questions for the group**: When to force `tool_choice: "any"` vs a specific named tool?
+- **Next week**: Finish Domain 2 MCP errors + tool distribution.
 
 ## 2026-05-23
 - **Hours this week**: 4
-- **Covered**: Set up folder, IAM basics.
-- **Next week**: KMS and encryption.
+- **Covered**: Set up folder, agentic loop basics.
+- **Next week**: Multi-agent orchestration.

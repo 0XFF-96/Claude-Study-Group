@@ -5,13 +5,13 @@
 > [progress Action](.github/workflows/update-progress.yml). To change your numbers,
 > tick boxes in your own `members/<you>/progress.md` and push.
 >
-> Percentages = completed topics ÷ total topics for each [SAA-C03 domain](syllabus/SAA-C03.md).
+> Percentages = completed topics ÷ total topics for each [CCA-F domain](syllabus/CCA-F.md).
 
 <!-- PROGRESS:START -->
-| Member | Target exam date | D1 Secure | D2 Resilient | D3 Performance | D4 Cost | Last check-in | Status |
-|---|---|---|---|---|---|---|---|
-| [jimmyli](members/jimmyli/) | 2026-08-15 | 55% | 30% | 0% | 0% | 2026-05-30 | 🟢 In progress |
+| Member | Target exam date | D1 Agentic | D2 Tools/MCP | D3 Claude Code | D4 Prompting | D5 Context | Last check-in | Status |
+|---|---|---|---|---|---|---|---|---|
+| [jimmyli](members/jimmyli/) | 2026-08-15 | 33% | 14% | 0% | 0% | 0% | 2026-05-30 | 🟢 In progress |
 <!-- PROGRESS:END -->
 
-**Legend** — D1 Secure · D2 Resilient · D3 Performance · D4 Cost ·
+**Legend** — D1 Agentic · D2 Tools/MCP · D3 Claude Code · D4 Prompting · D5 Context ·
 Status: 🟢 In progress / 🎯 Final prep / ✅ Passed

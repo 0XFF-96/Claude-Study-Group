@@ -4,17 +4,19 @@ Drop links and short notes here. Keep it curated — quality over quantity. Anyo
 
 ## Official
 
-- [SAA-C03 Exam Guide (PDF)](https://d1.awsstatic.com/training-and-certification/docs-sa-assoc/AWS-Certified-Solutions-Architect-Associate_Exam-Guide.pdf)
-- [AWS Skill Builder](https://skillbuilder.aws/) — official free courses & practice questions
-- [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/)
+- [Claude Docs](https://docs.claude.com/) — API, prompt engineering, tool use
+- [Claude Agent SDK docs](https://docs.claude.com/en/api/agent-sdk/overview) — agents, subagents, hooks
+- [Claude Code docs](https://docs.claude.com/en/docs/claude-code/overview) — CLAUDE.md, skills, slash commands, CI/CD
+- [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) — servers, tools, resources
+- [Anthropic Academy / courses](https://www.anthropic.com/learn) — official learning paths
 
 ## Courses
 
-- _Add the course you're using and a one-line opinion (e.g. "Cantrill — deep, long; great for theory")._
+- _Add the course you're using and a one-line opinion._
 
 ## Practice exams
 
-- _Add practice-exam sources here._
+- _Add practice-question sources here._
 
 ## Cheat sheets & summaries
 

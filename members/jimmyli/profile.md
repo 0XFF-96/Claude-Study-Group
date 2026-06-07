@@ -14,5 +14,5 @@
 ## Study plan
 
 - Weekly study target: 6 hours
-- Primary course: Adrian Cantrill SAA-C03
-- Goal: pass before mid-August; weakest area is networking performance.
+- Primary materials: Claude Docs + Agent SDK docs, hands-on with Claude Code
+- Goal: pass before mid-August; weakest area is MCP tool design.

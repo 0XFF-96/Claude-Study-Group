@@ -14,5 +14,5 @@
 ## Study plan
 
 - Weekly study target: e.g. 6 hours
-- Primary course: e.g. Adrian Cantrill / Stephane Maarek
+- Primary materials: e.g. Claude Docs, Agent SDK docs, Anthropic courses
 - Notes on goals, exam strategy, weak areas, etc.

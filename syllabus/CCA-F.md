@@ -1,13 +1,25 @@
-# My CCA-F Progress
+# Claude Certified Architect – Foundations (CCA-F) Syllabus
 
-Tick a box (`- [ ]` → `- [x]`) when you're confident on a topic. The Action counts these
-per domain to fill in your row of the top-level `PROGRESS.md`. Keep the `## Domain N` headers.
+Authoritative topic checklist for the group. Your personal `members/<you>/progress.md`
+is a copy of the five domain sections below — tick boxes there as you learn.
 
-See [../../syllabus/CCA-F.md](../../syllabus/CCA-F.md) for the authoritative list.
+> The `## Domain N` headers and `- [ ]` checkboxes are parsed by `scripts/update_progress.py`.
+> Keep the header format intact in your `progress.md`.
+
+**Exam format:** 60 multiple-choice questions · 120 minutes · closed-book (no AI assistance) ·
+passing score 720 (scaled 100–1000).
+
+| # | Domain | Weight |
+|---|--------|--------|
+| 1 | Agentic Architecture & Orchestration | 27% |
+| 2 | Tool Design & MCP Integration | 18% |
+| 3 | Claude Code Configuration & Workflows | 20% |
+| 4 | Prompt Engineering & Structured Output | 20% |
+| 5 | Context Management & Reliability | 15% |
 
 ---
 
-## Domain 1: Agentic Architecture & Orchestration
+## Domain 1: Agentic Architecture & Orchestration (27%)
 
 - [ ] Agentic loop lifecycle: inspect `stop_reason` (`tool_use` vs `end_turn`), append tool results, model-driven vs hardcoded sequences
 - [ ] Loop anti-patterns: don't parse natural-language signals or use arbitrary iteration caps as the primary stop condition
@@ -19,7 +31,7 @@ See [../../syllabus/CCA-F.md](../../syllabus/CCA-F.md) for the authoritative lis
 - [ ] Task decomposition: fixed prompt-chaining vs dynamic adaptive decomposition; per-file + cross-file review passes
 - [ ] Session state: `--resume <name>` for named sessions, `fork_session` for branches, resume-vs-fresh-summary tradeoffs
 
-## Domain 2: Tool Design & MCP Integration
+## Domain 2: Tool Design & MCP Integration (18%)
 
 - [ ] Tool interface design: clear descriptions, inputs, edge cases, boundaries; avoid overlapping/ambiguous tools
 - [ ] Splitting generic tools into purpose-specific tools with defined input/output contracts
@@ -29,7 +41,7 @@ See [../../syllabus/CCA-F.md](../../syllabus/CCA-F.md) for the authoritative lis
 - [ ] Built-in tools: `Grep` (content) vs `Glob` (paths) vs `Read`/`Write`/`Edit`; `Read`+`Write` fallback when `Edit` anchor isn't unique
 - [ ] Incremental codebase understanding: start with `Grep` for entry points, then `Read` to follow imports
 
-## Domain 3: Claude Code Configuration & Workflows
+## Domain 3: Claude Code Configuration & Workflows (20%)
 
 - [ ] CLAUDE.md hierarchy: user (`~/.claude/`) vs project (`.claude/` / root) vs directory scope; user-level isn't shared via VCS
 - [ ] Modular memory: `@import` syntax, `.claude/rules/` topic files, `/memory` to verify what's loaded
@@ -39,7 +51,7 @@ See [../../syllabus/CCA-F.md](../../syllabus/CCA-F.md) for the authoritative lis
 - [ ] Iterative refinement: concrete input/output examples, test-driven iteration, interview pattern, batched vs sequential fixes
 - [ ] CI/CD integration: `-p`/`--print`, `--output-format json` + `--json-schema`, CLAUDE.md context, independent review instance
 
-## Domain 4: Prompt Engineering & Structured Output
+## Domain 4: Prompt Engineering & Structured Output (20%)
 
 - [ ] Explicit criteria over vague instructions to cut false positives; concrete severity definitions with examples
 - [ ] Few-shot prompting for consistency, ambiguous-case handling, generalization, and reduced extraction hallucination
@@ -48,7 +60,7 @@ See [../../syllabus/CCA-F.md](../../syllabus/CCA-F.md) for the authoritative lis
 - [ ] Batch processing: Message Batches API (50% cost, ≤24h, no SLA, no mid-request tool calls), `custom_id` correlation
 - [ ] Multi-instance & multi-pass review: independent reviewer vs self-review; per-file local + cross-file integration passes
 
-## Domain 5: Context Management & Reliability
+## Domain 5: Context Management & Reliability (15%)
 
 - [ ] Preserve critical info over long context: persistent "case facts" block, the "lost in the middle" effect, trim verbose tool outputs
 - [ ] Escalation & ambiguity resolution: explicit triggers, honor human requests immediately, ask for IDs on multiple matches

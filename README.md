@@ -1,6 +1,6 @@
-# Cloud Study Group — AWS SAA-C03
+# Cloud Study Group — Claude Certified Architect (CCA-F)
 
-A study group working toward the **AWS Certified Solutions Architect – Associate (SAA-C03)**.
+A study group working toward the **Claude Certified Architect – Foundations (CCA-F)**.
 We track everyone's progress in one place, keep our own notes, and check in weekly.
 
 ## 📊 Where is everyone?
@@ -24,10 +24,10 @@ The bot adds you to the overview automatically. Full instructions: **[GUIDE.md](
 |------|------|
 | [GUIDE.md](GUIDE.md) | How to participate — read this first |
 | [PROGRESS.md](PROGRESS.md) | Auto-generated group progress table (don't edit by hand) |
-| [syllabus/SAA-C03.md](syllabus/SAA-C03.md) | The exam blueprint & master topic checklist |
+| [syllabus/CCA-F.md](syllabus/CCA-F.md) | The exam blueprint & master topic checklist |
 | [members/](members/) | One folder per person: profile, progress, notes, weekly log |
 | [members/_TEMPLATE/](members/_TEMPLATE/) | Copy this to create your folder |
-| [resources/](resources/) | Shared courses, docs, practice exams |
+| [resources/](resources/) | Shared docs, courses, practice questions |
 | [scripts/update_progress.py](scripts/update_progress.py) | Builds the progress table from everyone's checkboxes |
 
 ## ⚙️ How tracking works
@@ -37,11 +37,14 @@ Each person ticks `- [ ]` → `- [x]` boxes in their own `progress.md`. A
 the boxes per domain and regenerate [PROGRESS.md](PROGRESS.md). Nobody edits the shared table —
 so direct pushes to `main` rarely conflict.
 
-## 🎯 The exam: SAA-C03 domains
+## 🎯 The exam: CCA-F domains
 
-1. Design Secure Architectures (30%)
-2. Design Resilient Architectures (26%)
-3. Design High-Performing Architectures (24%)
-4. Design Cost-Optimized Architectures (20%)
+1. Agentic Architecture & Orchestration (27%)
+2. Tool Design & MCP Integration (18%)
+3. Claude Code Configuration & Workflows (20%)
+4. Prompt Engineering & Structured Output (20%)
+5. Context Management & Reliability (15%)
+
+60 multiple-choice questions · 120 minutes · closed-book · pass = 720 / 1000.
 
 Happy studying — see you on the leaderboard. 🟢🎯✅

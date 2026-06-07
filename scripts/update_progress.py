@@ -23,10 +23,11 @@ END = "<!-- PROGRESS:END -->"
 
 # (column header, "Domain N" label matched in progress.md headers)
 DOMAINS = [
-    ("D1 Secure", "Domain 1"),
-    ("D2 Resilient", "Domain 2"),
-    ("D3 Performance", "Domain 3"),
-    ("D4 Cost", "Domain 4"),
+    ("D1 Agentic", "Domain 1"),
+    ("D2 Tools/MCP", "Domain 2"),
+    ("D3 Claude Code", "Domain 3"),
+    ("D4 Prompting", "Domain 4"),
+    ("D5 Context", "Domain 5"),
 ]
 
 CHECKBOX_RE = re.compile(r"^\s*[-*]\s*\[([ xX])\]")
