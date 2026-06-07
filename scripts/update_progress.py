@@ -93,7 +93,7 @@ def parse_breakdown(path: Path) -> dict[str, list[tuple[str, bool]]]:
 
 def render_breakdown(name: str, breakdown: dict[str, list[tuple[str, bool]]]) -> str:
     """Render one member's collapsible per-subdomain breakdown."""
-    done = sum(1 for items in breakdown.values() for _, c in items if c)
+    done = sum(1 for domain_items in breakdown.values() for _, c in domain_items if c)
     total = sum(len(items) for items in breakdown.values())
     summary = f"{name} — {pct(done, total)} overall ({done}/{total} subdomains)"
     lines = ["<details>", f"<summary>{summary}</summary>", ""]
