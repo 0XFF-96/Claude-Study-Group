@@ -63,6 +63,52 @@ def parse_progress(path: Path) -> dict[str, tuple[int, int]]:
     return {k: (v[0], v[1]) for k, v in counts.items()}
 
 
+LINK_LABEL_RE = re.compile(r"\[([^\]]+)\]")
+
+
+def _clean_label(text: str) -> str:
+    """Prefer the markdown link label; fall back to raw checkbox text."""
+    m = LINK_LABEL_RE.search(text)
+    return (m.group(1) if m else text).strip()
+
+
+def parse_breakdown(path: Path) -> dict[str, list[tuple[str, bool]]]:
+    """Return {column_header: [(label, checked), ...]} preserving order."""
+    items = {key: [] for key, _ in DOMAINS}
+    label_to_key = {norm(label): key for key, label in DOMAINS}
+    current = None
+    for line in path.read_text(encoding="utf-8").splitlines():
+        header = DOMAIN_HEADER_RE.match(line)
+        if header:
+            current = label_to_key.get(norm(header.group(1)))
+            continue
+        box = CHECKBOX_RE.match(line)
+        if box and current:
+            rest = line[box.end():].strip()
+            items[current].append((_clean_label(rest), box.group(1).lower() == "x"))
+    return items
+
+
+def render_breakdown(name: str, breakdown: dict[str, list[tuple[str, bool]]]) -> str:
+    """Render one member's collapsible per-subdomain breakdown."""
+    done = sum(1 for items in breakdown.values() for _, c in items if c)
+    total = sum(len(items) for items in breakdown.values())
+    summary = f"{name} — {pct(done, total)} overall ({done}/{total} subdomains)"
+    lines = ["<details>", f"<summary>{summary}</summary>", ""]
+    for key, label in DOMAINS:
+        items = breakdown.get(key, [])
+        if not items:
+            continue
+        d = sum(1 for _, c in items if c)
+        lines.append(f"**{label} ({pct(d, len(items))})**")
+        lines.append("")
+        for sub_label, checked in items:
+            lines.append(f"- {'✅' if checked else '⬜'} {sub_label}")
+        lines.append("")
+    lines.append("</details>")
+    return "\n".join(lines) + "\n"
+
+
 def parse_profile(path: Path) -> dict[str, str]:
     meta = {"target": "—", "status": "🟢 In progress"}
     if not path.exists():
