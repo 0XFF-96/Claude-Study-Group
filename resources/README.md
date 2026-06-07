@@ -4,6 +4,7 @@ Drop links and short notes here. Keep it curated — quality over quantity. Anyo
 
 ## Official
 
+- **[CertSafari — Claude Certified Architect (CCA-F)](https://www.certsafari.com/anthropic/claude-certified-architect)** — our study target: exam guide (PDF) + 636 practice questions across all 5 domains
 - [Claude Docs](https://docs.claude.com/) — API, prompt engineering, tool use
 - [Claude Agent SDK docs](https://docs.claude.com/en/api/agent-sdk/overview) — agents, subagents, hooks
 - [Claude Code docs](https://docs.claude.com/en/docs/claude-code/overview) — CLAUDE.md, skills, slash commands, CI/CD
@@ -16,7 +17,7 @@ Drop links and short notes here. Keep it curated — quality over quantity. Anyo
 
 ## Practice exams
 
-- _Add practice-question sources here._
+- [CertSafari CCA-F](https://www.certsafari.com/anthropic/claude-certified-architect) — 636 scenario-based practice questions, the bank our syllabus is built from
 
 ## Cheat sheets & summaries
 
