@@ -24,7 +24,8 @@ The bot adds you to the overview automatically. Full instructions: **[GUIDE.md](
 |------|------|
 | [GUIDE.md](GUIDE.md) | How to participate — read this first |
 | [PROGRESS.md](PROGRESS.md) | Auto-generated group progress table (don't edit by hand) |
-| [syllabus/CCA-F.md](syllabus/CCA-F.md) | The exam blueprint & master topic checklist |
+| [syllabus/CCA-F.md](syllabus/CCA-F.md) | The 30-subdomain master checklist (tick boxes in your own `progress.md`) |
+| [syllabus/domains/](syllabus/domains/) | Detailed per-domain reference (Knowledge of / Skills in for each subdomain) |
 | [members/](members/) | One folder per person: profile, progress, notes, weekly log |
 | [members/_TEMPLATE/](members/_TEMPLATE/) | Copy this to create your folder |
 | [resources/](resources/) | Shared docs, courses, practice questions |
