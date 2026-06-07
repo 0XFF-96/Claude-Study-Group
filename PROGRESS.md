@@ -10,8 +10,62 @@
 <!-- PROGRESS:START -->
 | Member | Target exam date | D1 Agentic | D2 Tools/MCP | D3 Claude Code | D4 Prompting | D5 Context | Last check-in | Status |
 |---|---|---|---|---|---|---|---|---|
-| [jimmyli](members/jimmyli/) | 2026-08-15 | 33% | 14% | 0% | 0% | 0% | 2026-05-30 | 🟢 In progress |
+| [jimmyli](members/jimmyli/) | 2026-08-15 | 29% | 20% | 0% | 0% | 0% | 2026-05-30 | 🟢 In progress |
 <!-- PROGRESS:END -->
 
 **Legend** — D1 Agentic · D2 Tools/MCP · D3 Claude Code · D4 Prompting · D5 Context ·
 Status: 🟢 In progress / 🎯 Final prep / ✅ Passed
+
+## Per-member subdomain breakdown
+
+<!-- BREAKDOWN:START -->
+<details>
+<summary>jimmyli — 10% overall (3/30 subdomains)</summary>
+
+**Domain 1 (29%)**
+
+- ✅ 1.1 Agentic loops
+- ✅ 1.2 Multi-agent orchestration
+- ⬜ 1.3 Subagent invocation
+- ⬜ 1.4 Workflow enforcement and handoff
+- ⬜ 1.5 Agent SDK hooks
+- ⬜ 1.6 Task decomposition
+- ⬜ 1.7 Session state
+
+**Domain 2 (20%)**
+
+- ✅ 2.1 Tool interface design
+- ⬜ 2.2 Structured MCP errors
+- ⬜ 2.3 Tool distribution and tool_choice
+- ⬜ 2.4 MCP server integration
+- ⬜ 2.5 Built-in tools
+
+**Domain 3 (0%)**
+
+- ⬜ 3.1 CLAUDE.md hierarchy
+- ⬜ 3.2 Slash commands and skills
+- ⬜ 3.3 Path-specific rules
+- ⬜ 3.4 Plan mode vs direct execution
+- ⬜ 3.5 Iterative refinement
+- ⬜ 3.6 CI/CD integration
+
+**Domain 4 (0%)**
+
+- ⬜ 4.1 Explicit criteria
+- ⬜ 4.2 Few-shot prompting
+- ⬜ 4.3 Structured output
+- ⬜ 4.4 Validation, retry, and feedback loops
+- ⬜ 4.5 Batch processing
+- ⬜ 4.6 Multi-pass review
+
+**Domain 5 (0%)**
+
+- ⬜ 5.1 Long-context preservation
+- ⬜ 5.2 Escalation and ambiguity
+- ⬜ 5.3 Error propagation
+- ⬜ 5.4 Large-codebase context
+- ⬜ 5.5 Human review and confidence
+- ⬜ 5.6 Information provenance
+
+</details>
+<!-- BREAKDOWN:END -->

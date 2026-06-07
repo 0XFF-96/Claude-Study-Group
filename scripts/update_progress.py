@@ -20,6 +20,8 @@ PROGRESS_FILE = ROOT / "PROGRESS.md"
 
 START = "<!-- PROGRESS:START -->"
 END = "<!-- PROGRESS:END -->"
+BD_START = "<!-- BREAKDOWN:START -->"
+BD_END = "<!-- BREAKDOWN:END -->"
 
 # (column header, "Domain N" label matched in progress.md headers)
 DOMAINS = [
@@ -156,6 +158,7 @@ def collect_rows() -> list[dict]:
                 "cells": [pct(*counts[key]) for key, _ in DOMAINS],
                 "last": latest_log_date(member / "weekly-log.md"),
                 "status": meta["status"],
+                "breakdown": parse_breakdown(prog),
             }
         )
     return rows
@@ -193,6 +196,18 @@ def main() -> int:
         content,
         flags=re.DOTALL,
     )
+
+    breakdown_md = "\n".join(render_breakdown(r["name"], r["breakdown"]) for r in rows) or "_No members yet._\n"
+    if BD_START in new_content and BD_END in new_content:
+        bd_block = f"{BD_START}\n{breakdown_md}{BD_END}"
+        new_content = re.sub(
+            re.escape(BD_START) + r".*?" + re.escape(BD_END),
+            lambda _m: bd_block,
+            new_content,
+            flags=re.DOTALL,
+        )
+    else:
+        print(f"warning: missing {BD_START}/{BD_END} markers in PROGRESS.md; skipping breakdown", file=sys.stderr)
 
     # Always print the table so the Action job summary shows "where everyone is".
     print(table)
