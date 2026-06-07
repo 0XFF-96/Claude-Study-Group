@@ -6,6 +6,8 @@ is a copy of the five domain sections below — tick boxes there as you learn.
 > The `## Domain N` headers and `- [ ]` checkboxes are parsed by `scripts/update_progress.py`.
 > Keep the header format intact in your `progress.md`.
 
+**Source:** [CertSafari — Claude Certified Architect (CCA-F)](https://www.certsafari.com/anthropic/claude-certified-architect) (exam guide + practice bank).
+
 **Exam format:** 60 multiple-choice questions · 120 minutes · closed-book (no AI assistance) ·
 passing score 720 (scaled 100–1000).
 

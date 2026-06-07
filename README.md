@@ -47,4 +47,6 @@ so direct pushes to `main` rarely conflict.
 
 60 multiple-choice questions · 120 minutes · closed-book · pass = 720 / 1000.
 
+Blueprint & practice questions: **[CertSafari CCA-F](https://www.certsafari.com/anthropic/claude-certified-architect)**.
+
 Happy studying — see you on the leaderboard. 🟢🎯✅
