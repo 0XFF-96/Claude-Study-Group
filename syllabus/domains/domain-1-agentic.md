@@ -2,6 +2,80 @@
 
 > Reference detail for the [CCA-F checklist](../CCA-F.md). Source: official study guide skills breakdown.
 
+## 推荐阅读
+
+**考试权重：27%**（最高，建议最先学）
+
+### 本 Domain 总览
+
+| 类型 | 资源 | 说明 |
+|------|------|------|
+| 课程 | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) | Agents & workflows、multi-agent、chaining — 覆盖 1.1–1.6 |
+| 课程 | [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | Agentic loop、subagents、hooks 基础 — 覆盖 1.1、1.3–1.5 |
+| 课程 | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) | Subagent 隔离 context、并行委派 — 覆盖 1.2–1.3 |
+| 课程 | [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Session、resume、高级工作流 — 覆盖 1.7 |
+| 文档 | [Agent SDK Overview](https://docs.claude.com/en/api/agent-sdk/overview) | SDK 总览 |
+| 文档 | [How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) | `stop_reason`、hooks 生命周期 |
+| 文档 | [Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) | `AgentDefinition`、context 传递 |
+| 文档 | [Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) | Tool results 回传、loop 基础 |
+| 文档 | [Hooks](https://docs.claude.com/en/docs/claude-code/hooks) | `PreToolUse` / `PostToolUse` 拦截 |
+| 刷题 | [CertSafari — Domain 1](https://www.certsafari.com/anthropic/claude-certified-architect) | 选 Domain Mode → Agentic Architecture |
+
+**建议学习顺序：** 1.1 → 1.2 → 1.3 → 1.4 → 1.5 → 1.6 → 1.7
+
+### 按子主题
+
+#### [1.1 Agentic loops](#11-agentic-loops)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — *Agents and workflows* 模块
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — agentic loop 与 tools 协同
+- 文档：[How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — `tool_use` vs `end_turn`
+- 文档：[Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) — tool results 追加到 conversation history
+- 考点速记：循环终止看 `stop_reason`，不要用自然语言或任意 iteration cap 作主停止条件
+
+#### [1.2 Multi-agent orchestration](#12-multi-agent-orchestration)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — coordinator-subagent、hub-and-spoke
+- 课程：[Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) — 隔离 context、coordinator 路由
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — subagent 不继承 parent history
+- 考点速记：所有 subagent 通信经 coordinator；iterative refinement 补 coverage gap
+
+#### [1.3 Subagent invocation](#13-subagent-invocation)
+
+- 课程：[Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) — `/agents`、自定义 subagent
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — `Agent` tool、`allowedTools` 须含 `Agent`
+- 文档：[Agent SDK Overview](https://docs.claude.com/en/api/agent-sdk/overview) — `AgentDefinition` 配置
+- 考点速记：context 必须显式写入 prompt；同一 turn 可并行多个 Task/Agent 调用
+
+#### [1.4 Workflow enforcement and handoff](#14-workflow-enforcement-and-handoff)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — hooks 与权限
+- 文档：[Hooks](https://docs.claude.com/en/docs/claude-code/hooks) — programmatic gate vs prompt guidance
+- 文档：[How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — `PreToolUse` 阻断不合规 tool call
+- 考点速记：金融/身份验证等确定性合规 → hooks 优于纯 prompt；escalation 需结构化 handoff summary
+
+#### [1.5 Agent SDK hooks](#15-agent-sdk-hooks)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — hooks 实战
+- 文档：[Hooks](https://docs.claude.com/en/docs/claude-code/hooks) — `PostToolUse` 数据归一化
+- 文档：[How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — hook 事件表（`PreToolUse`、`PostToolUse`、`SubagentStop` 等）
+- 考点速记：`PostToolUse` 统一 timestamp 格式；拦截超阈值退款等须用 hook 非 prompt
+
+#### [1.6 Task decomposition](#16-task-decomposition)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — chaining、routing、parallelization
+- 文档：[Agent SDK Overview](https://docs.claude.com/en/api/agent-sdk/overview) — 工作流模式
+- 考点速记：固定 pipeline → prompt chaining；开放调查 → dynamic decomposition；大 review → per-file + cross-file 两 pass
+
+#### [1.7 Session state](#17-session-state)
+
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — session 管理
+- 文档：[Claude Code overview](https://docs.claude.com/en/docs/claude-code/overview) — `--resume`、`fork_session`
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — fork 探索分支
+- 考点速记：stale tool results → 新 session + summary 优于盲目 resume；resume 后告知文件变更
+
+---
+
 ## 1.1 Agentic loops
 
 *Official skill: Design and implement agentic loops for autonomous task execution*

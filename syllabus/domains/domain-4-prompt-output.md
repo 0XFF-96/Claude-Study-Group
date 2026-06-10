@@ -2,6 +2,69 @@
 
 > Reference detail for the [CCA-F checklist](../CCA-F.md). Source: official study guide skills breakdown.
 
+## 推荐阅读
+
+**考试权重：20%**
+
+### 本 Domain 总览
+
+| 类型 | 资源 | 说明 |
+|------|------|------|
+| 课程 | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) | Prompting、structured output、tool use — 覆盖 4.1–4.5 |
+| 课程 | [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Multi-pass review、CI structured output — 覆盖 4.6 |
+| 文档 | [Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) | Explicit criteria、few-shot、examples |
+| 文档 | [Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) | `tool_use` + JSON schema、`tool_choice` |
+| 文档 | [Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) | `outputFormat`、validation retry |
+| 文档 | [Batch processing](https://docs.claude.com/en/docs/build-with-claude/batch-processing) | Message Batches API、50% 成本、`custom_id` |
+| 文档 | [Messages Batch API reference](https://docs.claude.com/en/api/messages-batch) | API 参数、限制 |
+| 刷题 | [CertSafari — Domain 4](https://www.certsafari.com/anthropic/claude-certified-architect) | 选 Domain Mode → Prompt Engineering |
+
+**建议学习顺序：** 4.1 → 4.2 → 4.3 → 4.4 → 4.5 → 4.6
+
+### 按子主题
+
+#### [4.1 Explicit criteria](#41-explicit-criteria)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — review criteria 设计
+- 文档：[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — 具体标准 vs 模糊指令
+- 考点速记："be conservative" 无效；高 FP 类别先 disable 恢复信任；severity 用代码示例定义
+
+#### [4.2 Few-shot prompting](#42-few-shot-prompting)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — few-shot 模块
+- 文档：[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — 2–4 个 targeted examples
+- 考点速记：ambiguous case 展示 reasoning；extraction 任务减少 hallucination；格式一致性
+
+#### [4.3 Structured output](#43-structured-output)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — tool use + schema
+- 文档：[Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) — `tool_choice` auto / any / forced
+- 文档：[Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — JSON Schema、Zod/Pydantic
+- 考点速记：schema 消除 syntax error 不防 semantic error；nullable 字段防 fabrication；enum + "other"
+
+#### [4.4 Validation, retry, and feedback loops](#44-validation-retry-and-feedback-loops)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — validation flows
+- 文档：[Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — retry limit、error handling
+- 文档：[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — 反馈循环设计
+- 考点速记：信息根本不在文档里 → retry 无效；`detected_pattern` 分析 FP；`calculated_total` vs `stated_total`
+
+#### [4.5 Batch processing](#45-batch-processing)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — batch 策略
+- 文档：[Batch processing](https://docs.claude.com/en/docs/build-with-claude/batch-processing) — 50% 折扣、≤24h、无 SLA
+- 文档：[Messages Batch API](https://docs.claude.com/en/api/messages-batch) — `custom_id` 关联
+- 考点速记：blocking pre-merge → sync API；overnight audit → batch；单 request 不支持 multi-turn tool calling
+
+#### [4.6 Multi-pass review](#46-multi-pass-review)
+
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — 独立 review instance
+- 文档：[Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — multi-step tool use 后结构化输出
+- 文档：[Agent SDK Overview](https://docs.claude.com/en/api/agent-sdk/overview) — 多 instance 架构
+- 考点速记：同 session 自审 < 独立 reviewer；大 review → per-file local + cross-file integration 两 pass
+
+---
+
 ## 4.1 Explicit criteria
 
 *Official skill: Design prompts with explicit criteria to improve precision and reduce false positives*
