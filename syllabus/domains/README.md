@@ -4,6 +4,9 @@ Detailed skills breakdown for each domain, split from the official study guide.
 Tick your progress in [`../CCA-F.md`](../CCA-F.md); each checklist item links into
 the matching `## N.M` section below.
 
+Each `domain-*.md` file opens with a **推荐阅读** section: official Anthropic Academy
+courses, docs, and CertSafari practice links mapped per subdomain.
+
 | Domain | Weight | File |
 |--------|--------|------|
 | 1 — Agentic Architecture & Orchestration | 27% | [domain-1-agentic.md](domain-1-agentic.md) |
