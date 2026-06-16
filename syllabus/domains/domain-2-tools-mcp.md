@@ -2,6 +2,67 @@
 
 > Reference detail for the [CCA-F checklist](../CCA-F.md). Source: official study guide skills breakdown.
 
+## 推荐阅读
+
+**考试权重：18%**
+
+### 本 Domain 总览
+
+| 类型 | 资源 | 说明 |
+|------|------|------|
+| 课程 | [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol) | MCP tools/resources/prompts 三原语 — 覆盖 2.2、2.4 |
+| 课程 | [Model Context Protocol: Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) | 生产级 MCP、transport、notifications — 覆盖 2.4 |
+| 课程 | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) | Defining tools、MCP servers、tool_choice — 覆盖 2.1–2.3 |
+| 课程 | [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | MCP 连接、built-in tools — 覆盖 2.4–2.5 |
+| 文档 | [Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) | Tool 描述、`tool_choice` auto/any/forced |
+| 文档 | [Claude Code — MCP](https://docs.claude.com/en/docs/claude-code/mcp) | `.mcp.json`、`~/.claude.json`、env 变量 |
+| 文档 | [MCP 规范 — Tools](https://modelcontextprotocol.io/docs/concepts/tools) | `isError`、结构化错误 |
+| 文档 | [MCP 规范 — Resources](https://modelcontextprotocol.io/docs/concepts/resources) | 内容目录、减少 exploratory calls |
+| 文档 | [Claude Code overview](https://docs.claude.com/en/docs/claude-code/overview) | Grep/Glob/Read/Write/Edit 内置工具 |
+| 刷题 | [CertSafari — Domain 2](https://www.certsafari.com/anthropic/claude-certified-architect) | 选 Domain Mode → Tool Design & MCP |
+
+**建议学习顺序：** 2.1 → 2.3 → 2.2 → 2.4 → 2.5
+
+### 按子主题
+
+#### [2.1 Tool interface design](#21-tool-interface-design)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — *Defining tools with MCP*
+- 文档：[Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) — description 是 LLM 选 tool 的主要依据
+- 文档：[MCP Tools spec](https://modelcontextprotocol.io/docs/concepts/tools) — input schema、description 最佳实践
+- 考点速记：重叠 tool 要 rename/split；system prompt 关键词勿覆盖 tool description
+
+#### [2.2 Structured MCP errors](#22-structured-mcp-errors)
+
+- 课程：[Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol) — 错误处理模式
+- 文档：[MCP Tools spec](https://modelcontextprotocol.io/docs/concepts/tools) — `isError` flag
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — subagent 本地恢复 transient error
+- 考点速记：返回 `errorCategory` + `isRetryable`；区分 access failure vs valid empty result
+
+#### [2.3 Tool distribution and tool_choice](#23-tool-distribution-and-tool_choice)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — tool distribution 章节
+- 文档：[Tool use](https://docs.claude.com/en/docs/build-with-claude/tool-use) — `tool_choice`: `auto` / `any` / forced
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — 每 subagent scoped tools
+- 考点速记：每 agent 4–5 个 tools 而非 18 个；synthesis agent 不应有 web search tools
+
+#### [2.4 MCP server integration](#24-mcp-server-integration)
+
+- 课程：[Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol) — server/client 搭建
+- 课程：[Model Context Protocol: Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) — 生产部署
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — *MCP servers with Claude Code*
+- 文档：[Claude Code — MCP](https://docs.claude.com/en/docs/claude-code/mcp) — project vs user scope、`${GITHUB_TOKEN}`
+- 文档：[MCP Resources](https://modelcontextprotocol.io/docs/concepts/resources) — 暴露 catalog 减少探索性调用
+- 考点速记：团队共享 → `.mcp.json`；个人实验 → `~/.claude.json`；优先社区 server 而非重复造轮子
+
+#### [2.5 Built-in tools](#25-built-in-tools)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — 内置工具日常用法
+- 文档：[Claude Code overview](https://docs.claude.com/en/docs/claude-code/overview) — Read/Write/Edit/Bash/Grep/Glob
+- 考点速记：搜内容用 Grep，搜文件名用 Glob；Edit 锚点不唯一时 Read + Write；增量探索勿一次 Read 全库
+
+---
+
 ## 2.1 Tool interface design
 
 *Official skill: Design effective tool interfaces with clear descriptions and boundaries*

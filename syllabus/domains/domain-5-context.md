@@ -2,6 +2,71 @@
 
 > Reference detail for the [CCA-F checklist](../CCA-F.md). Source: official study guide skills breakdown.
 
+## 推荐阅读
+
+**考试权重：15%**（概念会渗透到其他 Domain，勿跳过）
+
+### 本 Domain 总览
+
+| 类型 | 资源 | 说明 |
+|------|------|------|
+| 课程 | [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | `/compact`、`/clear`、`/context` — 覆盖 5.1、5.4 |
+| 课程 | [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Context management、large codebase — 覆盖 5.4 |
+| 课程 | [Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) | Long context、conversation management — 覆盖 5.1–5.3 |
+| 课程 | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) | Context 隔离、delegation — 覆盖 5.3–5.6 |
+| 文档 | [Memory / CLAUDE.md](https://docs.claude.com/en/docs/claude-code/memory) | 持久记忆、`/memory` |
+| 文档 | [How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) | `PreCompact` hook、compaction |
+| 文档 | [Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) | Context budget、structured handoff |
+| 文档 | [Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) | Escalation few-shot、ambiguity |
+| 文档 | [Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) | Confidence、field-level routing |
+| 刷题 | [CertSafari — Domain 5](https://www.certsafari.com/anthropic/claude-certified-architect) | 选 Domain Mode → Context Management |
+
+**建议学习顺序：** 5.1 → 5.4 → 5.3 → 5.2 → 5.6 → 5.5
+
+### 按子主题
+
+#### [5.1 Long-context preservation](#51-long-context-preservation)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — context window 管理
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — long context 策略
+- 文档：[How the agent loop works](https://code.claude.com/docs/en/agent-sdk/agent-loop) — `PreCompact`、tool result 累积
+- 文档：[Memory](https://docs.claude.com/en/docs/claude-code/memory) — 持久 case facts
+- 考点速记："lost in the middle"；progressive summarization 丢数字/日期；trim verbose tool output
+
+#### [5.2 Escalation and ambiguity](#52-escalation-and-ambiguity)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — escalation 设计
+- 文档：[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — few-shot escalation 示例
+- 考点速记：客户明确要求人工 → 立即 escalate；policy gap → escalate；多 match → 要 ID 勿 heuristic 选
+
+#### [5.3 Error propagation](#53-error-propagation)
+
+- 课程：[Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) — obstacle reporting
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — 仅 final message 回传 parent
+- 文档：[MCP Tools spec](https://modelcontextprotocol.io/docs/concepts/tools) — 结构化错误 vs 空结果
+- 考点速记：返回 failure type + partial results + alternatives；subagent 本地恢复 transient；勿 silent suppress
+
+#### [5.4 Large-codebase context](#54-large-codebase-context)
+
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — 大型代码库探索
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — `/compact` 实战
+- 文档：[Claude Code overview](https://docs.claude.com/en/docs/claude-code/overview) — subagent 委派探索
+- 考点速记：scratchpad 文件持久化发现；crash recovery manifest；phase 间 inject summary 再 spawn subagent
+
+#### [5.5 Human review and confidence](#55-human-review-and-confidence)
+
+- 课程：[Building with the Claude API](https://anthropic.skilljar.com/claude-with-the-anthropic-api) — confidence calibration
+- 文档：[Structured outputs (SDK)](https://code.claude.com/docs/en/agent-sdk/structured-outputs) — field-level confidence
+- 考点速记：aggregate 97% 可能掩盖某 doc type 差；stratified sampling；按 document type / field 分析准确率
+
+#### [5.6 Information provenance](#56-information-provenance)
+
+- 课程：[Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) — structured output 回传
+- 文档：[Subagents in the SDK](https://code.claude.com/docs/en/agent-sdk/subagents) — metadata 与 attribution
+- 考点速记：claim-source mapping 贯穿 synthesis；冲突统计 annotate 勿随意选一；日期防 temporal misread
+
+---
+
 ## 5.1 Long-context preservation
 
 *Official skill: Manage conversation context to preserve critical information across long interactions*

@@ -2,6 +2,74 @@
 
 > Reference detail for the [CCA-F checklist](../CCA-F.md). Source: official study guide skills breakdown.
 
+## 推荐阅读
+
+**考试权重：20%**
+
+### 本 Domain 总览
+
+| 类型 | 资源 | 说明 |
+|------|------|------|
+| 课程 | [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | CLAUDE.md、Plan Mode、hooks、context — 覆盖 3.1、3.4、3.5 |
+| 课程 | [Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills) | SKILL.md、slash commands、rules — 覆盖 3.2、3.3 |
+| 课程 | [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | CI/CD、GitHub、SDK — 覆盖 3.5、3.6 |
+| 课程 | [Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) | Explore subagent、context 隔离 — 覆盖 3.4 |
+| 文档 | [CLAUDE.md / Memory](https://docs.claude.com/en/docs/claude-code/memory) | 层级、`@import`、`.claude/rules/`、`/memory` |
+| 文档 | [Skills](https://docs.claude.com/en/docs/claude-code/skills) | `SKILL.md` frontmatter、`context: fork` |
+| 文档 | [Slash commands](https://docs.claude.com/en/docs/claude-code/slash-commands) | `.claude/commands/` vs `~/` |
+| 文档 | [Hooks](https://docs.claude.com/en/docs/claude-code/hooks) | 与 skills 对比、确定性控制 |
+| 文档 | [Common workflows](https://docs.claude.com/en/docs/claude-code/common-workflows) | Explore → Plan → Code → Commit |
+| 文档 | [Headless / CI mode](https://docs.claude.com/en/docs/claude-code/headless) | `-p`、`--output-format json`、`--json-schema` |
+| 博客 | [Agent Skills 工程文](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) | Skills 设计理念 |
+| 刷题 | [CertSafari — Domain 3](https://www.certsafari.com/anthropic/claude-certified-architect) | 选 Domain Mode → Claude Code Config |
+
+**建议学习顺序：** 3.1 → 3.2 → 3.3 → 3.4 → 3.5 → 3.6
+
+### 按子主题
+
+#### [3.1 CLAUDE.md hierarchy](#31-claudemd-hierarchy)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — CLAUDE.md 创建与维护
+- 文档：[Memory / CLAUDE.md](https://docs.claude.com/en/docs/claude-code/memory) — user / project / directory 三级
+- 文档：[Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills) — CLAUDE.md vs Skills 选型
+- 考点速记：团队共享放 project-level；`@import` 模块化；大文件拆到 `.claude/rules/`；`/memory` 诊断加载
+
+#### [3.2 Slash commands and skills](#32-slash-commands-and-skills)
+
+- 课程：[Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills) — 从零创建 Skill
+- 文档：[Skills](https://docs.claude.com/en/docs/claude-code/skills) — `context: fork`、`allowed-tools`、`argument-hint`
+- 文档：[Slash commands](https://docs.claude.com/en/docs/claude-code/slash-commands) — project vs user scope
+- 博客：[Agent Skills 工程文](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+- 考点速记：verbose 输出 skill 用 `context: fork`；个人定制放 `~/.claude/skills/` 换名避免冲突
+
+#### [3.3 Path-specific rules](#33-path-specific-rules)
+
+- 课程：[Introduction to agent skills](https://anthropic.skilljar.com/introduction-to-agent-skills) — rules 组织
+- 文档：[Memory § rules](https://docs.claude.com/en/docs/claude-code/memory) — YAML `paths` glob
+- 考点速记：`**/*.test.tsx` 跨目录比 subdirectory CLAUDE.md 更合适；仅编辑匹配文件时加载
+
+#### [3.4 Plan mode vs direct execution](#34-plan-mode-vs-direct-execution)
+
+- 课程：[Claude Code 101](https://anthropic.skilljar.com/claude-code-101) — Plan Mode、Explore → Plan → Code
+- 课程：[Introduction to subagents](https://anthropic.skilljar.com/introduction-to-subagents) — Explore subagent 隔离发现阶段
+- 文档：[Common workflows](https://docs.claude.com/en/docs/claude-code/common-workflows) — 何时 plan vs 直接执行
+- 考点速记：架构级/多文件/多方案 → Plan；单文件明确 bug → direct；verbose discovery 用 Explore subagent
+
+#### [3.5 Iterative refinement](#35-iterative-refinement)
+
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — 迭代工作流
+- 文档：[Prompt engineering](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview) — 具体 I/O 示例优于纯 prose
+- 考点速记：2–3 个 input/output 示例；TDD 先写 test 再迭代；interview pattern 先问再写；交互问题一次 message 修
+
+#### [3.6 CI/CD integration](#36-cicd-integration)
+
+- 课程：[Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) — GitHub 集成、自动化 review
+- 文档：[Headless / CI mode](https://docs.claude.com/en/docs/claude-code/headless) — `-p`、`--output-format json`、`--json-schema`
+- 文档：[Memory / CLAUDE.md](https://docs.claude.com/en/docs/claude-code/memory) — CI 上下文注入
+- 考点速记：CI 用 `-p` 防 hang；review 用独立 instance 非生成者自审；重跑时只报新/未解决问题
+
+---
+
 ## 3.1 CLAUDE.md hierarchy
 
 *Official skill: Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization*
