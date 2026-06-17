@@ -4,7 +4,7 @@
 > the progress Action parses them.
 
 - **Name**: Judy
-- **GitHub**: XiaoqinFan
+- **GitHub**: Fan-Xiaoqin
 - **Target exam date**: 2026-12-31
 - **Status**: in-progress
 - **Time zone**: e.g. Australia/Sydney
